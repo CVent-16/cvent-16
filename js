@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>CVent<title/>
+
+
+
+
+
+
+
+
 function makeCloak(replaceUrl = classroom.google.com) {//replaceUrl is the url of the other page
   if(window.top.location.href !== 'about:blank') {
     var url = window.location.href;//window.location.href is the url of the current page
