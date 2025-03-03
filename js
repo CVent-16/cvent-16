@@ -1,4 +1,17 @@
-function makeCloak(replaceURL = classroom.google.com) {
-  if(window.top.location.href == 'about:blank') {
+function makeCloak(replaceUrl = classroom.google.com) {//replaceUrl is the url of the other page
+  if(window.top.location.href !== 'about:blank') {
+    var url = window.location.href;//window.location.href is the url of the current page
+    const win = window.open();
+    if (!win || win.closed || typeof win.closed == 'undefined') {
     return;
+    }
+    win.document.body.style.margin = '0';
+    win.document.body.style.height = '100vh';
+    var iframe = win.document.createElement('iframe');
+    iframe.style.margin = '0';
+    iframe.referrerpolicy = 'no-referrer';
+    iframe.allow = 'fullscreen';
+    iframe.src = url.toString();
+    win.document.body.appendChild(iframe);
+    window.location.replace(replaceUrl);
   }
